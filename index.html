@@ -1,16 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peddy</title>
     <!-- Daisy UI cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <h1>hello</h1>
+    <!-- google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0E7A81",
+              text_dark: "#131313",
+              text_light: "rgba(19, 19, 19, 0.7)",
+            },
+            fontFamily: {
+              inter: "Inter",
+              lato: "Lato",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="text-text_dark">
+    <header class="font-lato">
+      <nav class="w-11/12 md:w-10/12 mx-auto my-5 lg:my-7">
+        <div class="navbar">
+          <div class="navbar-start flex gap-3">
+            <img src="images/logo.webp" alt="" />
+
+            <a class="text-3xl">Peddy</a>
+          </div>
+          <div class="navbar-center hidden md:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a>Home</a></li>
+              <li>
+                <a>Shop</a>
+              </li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <i class="far fa-user text-text_light border rounded-full p-3"></i>
+            <div class="dropdown relative">
+              <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-text_light"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow absolute right-0 w-32"
+              >
+                <li><a>Home</a></li>
+                <li>
+                  <a>Shop</a>
+                </li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="banner flex flex-col justify-center items-center text-center w-10/12 md:w-3/6 mx-auto mt-5"
+      >
+        <h4 class="font-bold text-xl md:text-2xl text-text_light">
+          Bringing Families Together ❤️‍🔥
+        </h4>
+        <h1
+          class="font-black text-3xl md:text-5xl xl:text-7xl my-6 leading-tight">
+          Your Path to Adoption Starts Here
+        </h1>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a.
+        </p>
+        <div>
+          <button class="mt-8 bg-primary px-8 py-4 rounded-xl text-white">
+            View More
+          </button>
+        </div>
+        <div>
+          <img class="mt-12" src="images/pet.webp" alt="" />
+        </div>
+      </div>
+    </header>
+    <main></main>
+    <footer></footer>
     <!-- js file link -->
-     <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
