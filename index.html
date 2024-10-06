@@ -23,7 +23,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script>
       tailwind.config = {
         theme: {
@@ -44,7 +44,7 @@
   </head>
   <body class="text-text_dark">
     <header class="font-lato">
-      <nav class="w-11/12 md:w-10/12 mx-auto my-5 lg:my-7">
+      <nav class="w-11/12 md:w-10/12 lg:w-9/12 mx-auto my-5 lg:my-7">
         <div class="navbar">
           <div class="navbar-start flex gap-3">
             <img src="images/logo.webp" alt="" />
@@ -99,7 +99,9 @@
         <h4 class="font-bold text-xl md:text-2xl text-text_light">
           Bringing Families Together ❤️‍🔥
         </h4>
-        <h1 class="font-black lg:leading-tight text-3xl md:text-5xl lg:text-7xl my-6">
+        <h1
+          class="font-black lg:leading-tight text-3xl md:text-5xl lg:text-7xl my-6"
+        >
           Your Path to Adoption Starts Here
         </h1>
         <p>
@@ -108,20 +110,52 @@
           using Lorem Ipsum is that it has a.
         </p>
         <div>
-          <button class="mt-8 bg-primary px-8 py-4 rounded-xl text-white">
-            View More
-          </button>
+          <a href="#adopt-section"
+            ><button class="mt-8 bg-primary px-8 py-4 rounded-xl text-white">
+              View More
+            </button></a
+          >
         </div>
         <div>
           <img class="mt-12" src="images/pet.webp" alt="" />
         </div>
       </div>
     </header>
-    <main class="w-10/12 mx-auto mt-24">
-      <section class=" ">
-        <div class="lg:w-3/5 mx-auto flex flex-col items-center justify-center text-center space-y-6 mb-12">
-          <h2 class="font-black text-4xl">Adopt  Your  Best Friend</h2>
-          <p class="text-text_light">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+    <main class="w-10/12 lg:w-9/12 mx-auto mt-16 lg:mt-24">
+      <section id="adopt-section">
+        <div
+          class="lg:w-3/5 mx-auto flex flex-col items-center justify-center text-center space-y-6 mb-12"
+        >
+          <h2 class="font-black text-3xl md:text-4xl">
+            Adopt Your Best Friend
+          </h2>
+          <p class="text-text_light">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a.
+          </p>
+        </div>
+        <div
+          id="category-btn-container"
+          class="grid grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center"
+        ></div>
+        <div class="flex justify-between items-center my-8">
+          <h4 class="font-bold md:font-black text-xl md:text-2xl">
+            Best Deal For you
+          </h4>
+          <button
+            class="bg-primary px-4 py-2 md:px-8 md:py-4 rounded-xl text-white"
+          >
+            Sort by Price
+          </button>
+        </div>
+        <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+          <!-- div 1 -->
+          <div id="pet-container-all" class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 col-span-1 xl:col-span-2 2xl:col-span-3 gap-6">
+            
+          </div>
+          <!-- div 2 -->
+          <div class="grid grid-cols-2 p-5 gap-6 border rounded-xl"></div>
         </div>
       </section>
     </main>
