@@ -14,10 +14,9 @@ const showCategoryBtn = (data) => {
 
   data.forEach((element) => {
     // console.log(element.category_icon)
-    const button = document.createElement("button");
-    button.classList.add(
+    const div = document.createElement("div");
+    div.classList.add(
       "flex",
-      "gap-3",
       "justify-center",
       "items-center",
       "border",
@@ -26,14 +25,24 @@ const showCategoryBtn = (data) => {
       "w-full",
       "md:p-6"
     );
-    button.innerHTML = `
+    div.innerHTML = `
+               <button class = "flex gap-3 items-center" onclick = "loadByCategory('${element.category}')">
                 <img class="h-10 md:h-full" src = ${element.category_icon}/>
                 <p class="font-bold text-xl md:text-2xl">${element.category}</p>
+               </button>
         `;
-    categoryBtnContainer.appendChild(button);
-    // button.setAttribute("onclick",viewAll())
+    categoryBtnContainer.appendChild(div);
   });
 };
+
+async function loadByCategory(category) {
+  // console.log(category);
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/peddy/category/${category}`
+  );
+  const data = await res.json();
+  showAllPets(data.data);
+}
 
 async function loadAllPets() {
   const res = await fetch(
