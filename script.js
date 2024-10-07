@@ -27,28 +27,26 @@ const showCategoryBtn = (data) => {
 };
 
 const loadSpinner = (category) => {
-  document.getElementById('loader').style.display = 'block';
-  document.getElementById('loader-container').style.display = 'flex';
+  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader-container").style.display = "flex";
   const cardContainer = document.getElementById("pet-container-all");
   cardContainer.innerHTML = "";
-  cardContainer.classList.remove("bg-text_dark",
-    "bg-opacity-10")
+  cardContainer.classList.remove("bg-text_dark", "bg-opacity-10");
   const imgContainer = document.getElementById("show-liked-img");
-  imgContainer.innerHTML = ""
-  document.getElementById('right-container').classList.remove('border')
-  setTimeout(function(){
+  imgContainer.innerHTML = "";
+  document.getElementById("right-container").classList.remove("border");
+  setTimeout(function () {
     loadByCategory(category);
-  },2000);
+  }, 2000);
 };
 
 async function loadByCategory(category) {
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('loader-container').style.display = 'none';
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("loader-container").style.display = "none";
   const cardContainer = document.getElementById("pet-container-all");
   cardContainer.innerHTML = "";
-  cardContainer.classList.add("bg-text_dark",
-    "bg-opacity-10")
-  document.getElementById('right-container').classList.add('border');
+  cardContainer.classList.add("bg-text_dark", "bg-opacity-10");
+  document.getElementById("right-container").classList.add("border");
 
   const res = await fetch(
     `https://openapi.programming-hero.com/api/peddy/category/${category}`
@@ -57,34 +55,46 @@ async function loadByCategory(category) {
   showAllPets(data.data);
 }
 
-async function loadAllPets() {
+async function loadAllPets(status) {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/peddy/pets"
   );
   const data = await res.json();
   // console.log(data.pets)
-  document.getElementById('loader').style.display = 'block';
-  document.getElementById('loader-container').style.display = 'flex';
+  document.getElementById("loader").style.display = "block";
+  document.getElementById("loader-container").style.display = "flex";
   const cardContainer = document.getElementById("pet-container-all");
   cardContainer.innerHTML = "";
-  cardContainer.classList.remove("bg-text_dark",
-    "bg-opacity-10")
+  cardContainer.classList.remove("bg-text_dark", "bg-opacity-10");
   const imgContainer = document.getElementById("show-liked-img");
-  imgContainer.innerHTML = ""
-  document.getElementById('right-container').classList.remove('border')
-  setTimeout(function(){
-  showAllPets(data.pets);
-  },2000);
+  imgContainer.innerHTML = "";
+  document.getElementById("right-container").classList.remove("border");
+  setTimeout(function () {
+    if(status){
+      sortBtn(data.pets);
+    }
+    else{
+      showAllPets(data.pets);
+    }
+  }, 2000);
 }
 
+const sortBtn = (pets) => {
+  // console.log(pets);
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("loader-container").style.display = "none";
+  pets.sort((a, b)=> b.price - a.price);
+  // console.log(pets)
+  showAllPets(pets);
+};
+
 const showAllPets = (pets) => {
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('loader-container').style.display = 'none';
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("loader-container").style.display = "none";
   const cardContainer = document.getElementById("pet-container-all");
   cardContainer.innerHTML = "";
-  cardContainer.classList.add("bg-text_dark",
-      "bg-opacity-10")
-  document.getElementById('right-container').classList.add('border')
+  cardContainer.classList.add("bg-text_dark", "bg-opacity-10");
+  document.getElementById("right-container").classList.add("border");
 
   if (pets.length === 0) {
     cardContainer.classList.remove("grid");
@@ -254,6 +264,5 @@ function showLikedImage(image) {
   imgContainer.appendChild(div);
 }
 
-
-loadAllPets();
+loadAllPets(false);
 loadCategory();
