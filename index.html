@@ -149,15 +149,39 @@
             Sort by Price
           </button>
         </div>
-        <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+        <div id="loader-container" class=" justify-center items-center h-64 mt-24 hidden"><div id="loader"></div></div>
+
+        <div
+          id="card-container"
+          class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
+        >
           <!-- div 1 -->
-          <div id="pet-container-all" class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 col-span-1 xl:col-span-2 2xl:col-span-3 gap-6">
-            
-          </div>
+          <div
+            id="pet-container-all"
+            class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 col-span-1 xl:col-span-2 2xl:col-span-3 gap-6"
+          ></div>
           <!-- div 2 -->
-          <div class="grid grid-cols-2 p-5 gap-6 border rounded-xl"></div>
+          <div id="right-container" class="col-span-1 p-5 rounded-xl border">
+            <div
+              id="show-liked-img"
+              class="grid grid-cols-2 gap-6 rounded-xl"
+            ></div>
+          </div>
         </div>
       </section>
+      <!-- modal -->
+      <dialog id="my_modal_5" class="modal modal-middle">
+        <div class="modal-box">
+          <div id="modal-box"></div>
+          <div class="modal-action">
+            <form class="w-full" method="dialog">
+              <button class="btn w-full text-primary bg-primary bg-opacity-10">
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </main>
     <footer></footer>
     <!-- js file link -->
