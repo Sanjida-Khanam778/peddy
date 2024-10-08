@@ -17,7 +17,7 @@ const showCategoryBtn = (data) => {
     const div = document.createElement("div");
     div.classList.add("border", "rounded-2xl");
     div.innerHTML = `
-               <button class = "flex gap-3 items-center p-4 md:p-6 w-full justify-center" onclick = "loadSpinner('${element.category}')">
+               <button id="id-${element.category}" class = "category-btns flex gap-3 items-center p-4 md:p-6 w-full justify-center" onclick = "loadSpinner('${element.category}')">
                 <img class="h-10 md:h-full" src = ${element.category_icon}/>
                 <p class="font-bold text-xl md:text-2xl">${element.category}</p>
                </button>
@@ -38,7 +38,20 @@ const loadSpinner = (category) => {
   setTimeout(function () {
     loadByCategory(category);
   }, 2000);
+  removeActive();
+  document.getElementById(`id-${category}`).parentElement.className =
+    "border-primary border-2 bg-primary bg-opacity-10 rounded-[120px]";
+
 };
+
+function removeActive(){
+ const removeAll = document.getElementsByClassName('category-btns');
+ for(let item of removeAll){
+  // console.log(item);
+  item.parentElement.classList.remove('border-primary', 'border-2', 'bg-primary', 'bg-opacity-10', 'rounded-[120px]')
+  item.parentElement.classList.add('border', 'rounded-2xl');
+ }
+}
 
 async function loadByCategory(category) {
   document.getElementById("loader").style.display = "none";
@@ -70,10 +83,9 @@ async function loadAllPets(status) {
   imgContainer.innerHTML = "";
   document.getElementById("right-container").classList.remove("border");
   setTimeout(function () {
-    if(status){
+    if (status) {
       sortBtn(data.pets);
-    }
-    else{
+    } else {
       showAllPets(data.pets);
     }
   }, 2000);
@@ -83,7 +95,7 @@ const sortBtn = (pets) => {
   // console.log(pets);
   document.getElementById("loader").style.display = "none";
   document.getElementById("loader-container").style.display = "none";
-  pets.sort((a, b)=> b.price - a.price);
+  pets.sort((a, b) => b.price - a.price);
   // console.log(pets)
   showAllPets(pets);
 };
@@ -100,7 +112,7 @@ const showAllPets = (pets) => {
     cardContainer.classList.remove("grid");
     cardContainer.classList.add(
       "xl:p-24",
-      "p-10",
+      "p-8",
       "bg-text_dark",
       "bg-opacity-10",
       "flex",
@@ -112,7 +124,7 @@ const showAllPets = (pets) => {
     cardContainer.innerHTML = `
     <img src="images/error.webp"/>
     <h2 class = "font-bold text-3xl mt-6 mb-4">No Information Available</h2>
-    <p class = "text-tex_light text-center w-3/4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+    <p class = "text-tex_light text-center md:w-3/4 ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
 its layout. The point of using Lorem Ipsum is that it has a.</p>
     `;
     return;
@@ -120,7 +132,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     cardContainer.classList.add("grid");
     cardContainer.classList.remove(
       "xl:p-24",
-      "p-10",
+      "p-8",
       "bg-text_dark",
       "bg-opacity-10",
       "flex",
@@ -168,7 +180,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
               <button onclick = "loadLikedImage('${
                 pet.petId
               }')" class="border rounded-lg px-4 py-2"><img class="h-7" src="images/like-icon.png" alt=""></button>
-              <button class="text-lg font-bold text-primary border rounded-lg px-4 py-2">Adopt</button>
+              <button onclick = "my_modal_count.showModal(modalCount('${pet.petId}'))" id="adopt-${pet.petId}" class="text-lg font-bold text-primary border rounded-lg px-4 py-2">Adopt</button>
               <button onclick = "my_modal_5.showModal(displayModal('${
                 pet.petId
               }'))" class="text-lg font-bold text-primary border rounded-lg px-4 py-2">Details</button>
@@ -178,6 +190,33 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     cardContainer.appendChild(div1);
   });
 };
+
+function modalCount(id) {
+  const countContainer = document.getElementById("countdown");
+  const count = document.getElementById("count");
+  const modal = document.getElementById("my_modal_count");
+  // document.getElementById('count-modal-container').appendChild(modal);
+
+  let num = 3;
+  count.innerText = num;
+  countContainer.classList.add("flex");
+  // document.getElementById(`adopt-${id}`).innerText = "Adopt";
+
+  const clockId = setInterval(() => {
+    num--;
+    count.innerText = num;
+    if (num == 1) {
+      clearInterval(clockId);
+    }
+    // console.log(num);
+  }, 1000);
+  setTimeout(() => {
+    countContainer.classList.add("none");
+    modal.close();
+    document.getElementById(`adopt-${id}`).innerText = "Adopted";
+  }, 3000);
+
+}
 
 async function displayModal(id) {
   // console.log(id)

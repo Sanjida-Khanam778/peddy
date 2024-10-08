@@ -49,7 +49,7 @@
           <div class="navbar-start flex gap-3">
             <img src="images/logo.webp" alt="" />
 
-            <a class="text-3xl">Peddy</a>
+            <a class="text-3xl font-black">Peddy</a>
           </div>
           <div class="navbar-center hidden md:flex">
             <ul class="menu menu-horizontal px-1">
@@ -121,7 +121,7 @@
         </div>
       </div>
     </header>
-    <main class="w-10/12 lg:w-9/12 mx-auto mt-16 lg:mt-24">
+    <main class="w-10/12 lg:w-9/12 mx-auto mt-16 lg:mt-24 mb-8">
       <section id="adopt-section">
         <div
           class="lg:w-3/5 mx-auto flex flex-col items-center justify-center text-center space-y-6 mb-12"
@@ -143,13 +143,19 @@
           <h4 class="font-bold md:font-black text-xl md:text-2xl">
             Best Deal For you
           </h4>
-          <button onclick="loadAllPets(true)"
+          <button
+            onclick="loadAllPets(true)"
             class="bg-primary px-4 py-2 md:px-8 md:py-4 rounded-xl text-white"
           >
             Sort by Price
           </button>
         </div>
-        <div id="loader-container" class=" justify-center items-center h-64 mt-24 hidden"><div id="loader"></div></div>
+        <div
+          id="loader-container"
+          class="justify-center items-center h-64 mt-24 hidden"
+        >
+          <div id="loader"></div>
+        </div>
 
         <div
           id="card-container"
@@ -169,7 +175,7 @@
           </div>
         </div>
       </section>
-      <!-- modal -->
+      <!-- modal for details-->
       <dialog id="my_modal_5" class="modal modal-middle">
         <div class="modal-box">
           <div id="modal-box"></div>
@@ -182,8 +188,67 @@
           </div>
         </div>
       </dialog>
+      <!-- modal for coundown -->
+      <div id="count-modal-container">
+        <dialog id="my_modal_count" class="modal">
+          <div class="modal-box">
+            <div
+              id="countdown-container"
+              class="flex items-center justify-center flex-col text-center"
+            >
+              <img src="images/icons8-verified-64.png" alt="" />
+              <h3 class="text-4xl font-bold">Congrates!</h3>
+              <p class="py-4">Adoption process is start for your pet</p>
+              <div id="countdown">
+                <p class="text-5xl font-black" id="count"></p>
+              </div>
+            </div>
+            <div class="modal-action">
+              <form method="dialog"></form>
+            </div>
+          </div>
+        </dialog>
+      </div>
     </main>
-    <footer></footer>
+    <footer class="bg-text_dark text-white font-lato">
+      <section
+        class="py-10 md:py-16 xl:py-24 w-10/12 lg:w-9/12 mx-auto grid gap-10 xl:gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:justify-items-center"
+      >
+        <div class="space-y-6 order-1">
+          <div class="flex w-full items-center gap-3">
+            <div><img class="w-auto" src="images/logo.webp" alt="" /></div>
+            <h4 class="text-3xl font-black">Peddy</h4>
+          </div>
+          <p class="text-white text-opacity-90 leading-8">
+Location: av. Washington 165, NY CA 54003 <br>
+Phone: +31 85 964 47 25 <br>
+Email: info@yourdomain.com <br>
+Openings hours: 9.00 AM - 5.00 PM
+          </p>
+          <div class="flex gap-6">
+            <a class="cursor-pointer"><img src="images/fb.png" alt=""></i></a>
+            <a class="cursor-pointer"><img src="images/twitter.png" alt=""></a>
+            <a class="cursor-pointer"><img src="images/yt.png" alt=""></a>
+            <a class="cursor-pointer"><img src="images/insta.png" alt=""></i></a>
+          </div>
+        </div>
+        <div class="order-2 flex flex-col">
+          <h6 class="mb-8 font-bold text-lg">Useful Links</h6>
+          <a class="text-white text-opacity-60 cursor-pointer leading-8">Home</a>
+          <a class="text-white text-opacity-60 cursor-pointer leading-8">About Us</a>
+          <a class="text-white text-opacity-60 cursor-pointer leading-8">Animals</a>
+          <a class="text-white text-opacity-60 cursor-pointer leading-8">Foundation</a>
+          <a class="text-white text-opacity-60 cursor-pointer leading-8">Contact</a>
+        </div>
+        <div class="order-3 col-span-1">
+          <h6 class="mb-8 font-bold text-lg">Drop a Message</h6>
+
+          <input type="text" placeholder="Enter your email" class="mb-4 py-4 rounded-xl bg-opacity-5 bg-white px-5 w-full" />
+
+          <button class="bg-primary text-white rounded-xl py-3 font-bold text-xl w-full">Subscribe</button>
+        </div>
+      </section>
+    </footer>
     <!-- js file link -->
     <script src="script.js"></script>
   </body>
