@@ -148,7 +148,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
     div1.className = "p-5 border rounded-xl col-span-1";
     div1.innerHTML = `
         
-              <div><img class = "rounded-lg w-full" src=${pet.image}/></div>
+              <div class = "h-44"><img class = "rounded-lg w-full h-full object-cover" src=${pet.image}/></div>
               <div class="space-y-2 py-6 border-b">
                 <h4 class="text-xl font-bold">${pet.pet_name}</h4>
                 <div class="flex items-center gap-2">
@@ -173,7 +173,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
                   <div><img src="images/dollar-icon.png" alt=""></div>
                   <p class="text-text_light">Price: ${
                     pet.price ? pet.price : "Not Available"
-                  }$</p>
+                  }<span class ='${pet.price?"inline":"hidden"}'>$</span></p>
                 </div>
               </div>
              <div class="flex items-center justify-between mt-4">
