@@ -21,4 +21,4 @@ The project is to create a pet adoption plateform. Here, user can adopt their fa
    * __*Template Literals:*__ Here, template literals is used in many places. for example, in innerHTML assignmnets, I used template literals to create HTML elements dinamically.
    * __*async/await:*__ Async/await is used for fetching data and convert it to json(). In this project, async/await is used in *loadCategory()* , *loadAllPets()* functions etc.
 
-* ### Live link to the deployed project:  ## https://peddy-sanjida-778.surge.sh/
+* ### Live link to the deployed project: https://peddy-sanjida-778.surge.sh/
