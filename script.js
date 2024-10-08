@@ -179,7 +179,7 @@ its layout. The point of using Lorem Ipsum is that it has a.</p>
              <div class="flex items-center justify-between mt-4">
               <button onclick = "loadLikedImage('${
                 pet.petId
-              }')" class="border rounded-lg px-4 py-2"><img class="h-7" src="images/like-icon.png" alt=""></button>
+              }')" class="border rounded-lg px-2 py-2"><img class="h-7" src="images/like-icon.png" alt=""></button>
               <button onclick = "my_modal_count.showModal(modalCount('${pet.petId}'))" id="adopt-${pet.petId}" class="text-lg font-bold text-primary border rounded-lg px-4 py-2">Adopt</button>
               <button onclick = "my_modal_5.showModal(displayModal('${
                 pet.petId
